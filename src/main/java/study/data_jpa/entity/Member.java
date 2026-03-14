@@ -7,7 +7,7 @@ import lombok.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
-@NamedQuery(
+@NamedQuery( //장점: 로딩 시점에 문법 오류를 발견할 수 있다.
         name = "Member.findByUsername",
         query = "select m from Member m where m.username = :username"
 )
