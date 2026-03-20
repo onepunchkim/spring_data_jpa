@@ -98,7 +98,7 @@ class MemberRepositoryTest {
         //when
         PageRequest pageRequest = PageRequest.of(0, 3, Sort.by(Sort.Direction.DESC, "username"));
         Page<Member> page = memberRepository.findByAge(10, pageRequest);
-        Page<MemberDto> dtoPage = page.map(m -> new MemberDto());
+        Page<MemberDto> dtoPage = page.map(m -> new MemberDto(m.getId(), m.getUsername(), null));
 
         //페이지 계산 공식 적용 ...
         // totalPage = totalCount / size ...
