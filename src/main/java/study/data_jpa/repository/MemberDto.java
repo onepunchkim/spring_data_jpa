@@ -1,6 +1,7 @@
 package study.data_jpa.repository;
 
 import lombok.Data;
+import study.data_jpa.entity.Member;
 
 @Data
 public class MemberDto {
@@ -14,7 +15,8 @@ public class MemberDto {
         this.teamName = teamName;
     }
 
-    protected MemberDto() {
-        
+    public MemberDto(Member member) {
+        this.id = member.getId();
+        this.username = member.getUsername();
     }
 }
